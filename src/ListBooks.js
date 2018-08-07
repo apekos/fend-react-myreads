@@ -6,10 +6,11 @@ import AddBook from './AddBook'
 
 class ListBooks extends Component {
 	render() {
+		const { books } = this.props
 		return (
 			<div className="list-books">
 				<Title />
-				<Shelves />
+				<Shelves books={books}/>
 				<AddBook />
 			</div>
 		)
