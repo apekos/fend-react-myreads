@@ -1,20 +1,35 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Title from './Title'
-import Shelves from './Shelves'
+import Shelf from './Shelf'
 import AddBook from './AddBook'
 
 
-class ListBooks extends Component {
-	render() {
-		const { books } = this.props
-		return (
-			<div className="list-books">
-				<Title />
-				<Shelves books={books}/>
-				<AddBook />
-			</div>
-		)
-	}
+function ListBooks(props) {
+	const { books, changeShelf } = props
+	return (
+		<div className="list-books">
+			<Title />
+			<Shelf
+				shelfTitle='Currently Reading'
+				books={books}
+				changeShelf={changeShelf}
+				bookShelf='currentlyReading'
+			/>
+			<Shelf
+				shelfTitle='Want to Read'
+				books={books}
+				changeShelf={changeShelf}
+				bookShelf='wantToRead'
+			/>
+			<Shelf
+				shelfTitle='Read'
+				books={books}
+				changeShelf={changeShelf}
+				bookShelf='read'
+			/>
+			<AddBook />
+		</div>
+	)
 }
 
 export default ListBooks

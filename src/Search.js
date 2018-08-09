@@ -21,6 +21,7 @@ class Search extends Component {
 	  			this.setState({ showingBooks: [] })
 	  		} else {
 	  			this.setState({ showingBooks: books })
+	  			console.log(books)
 	  		}
 	  	})
 	  }	else {
@@ -30,6 +31,7 @@ class Search extends Component {
 
 	render() {
   	const { query, showingBooks } = this.state
+  	const { changeShelf, books } = this.props
 
 		return (
 			<div className="search-books">
@@ -46,7 +48,25 @@ class Search extends Component {
 				</div>
 				<div className="search-books-results">
 					<ol className="books-grid">
-						<Book books={showingBooks}/>
+						{showingBooks.map(book => {
+							let shelf = 'none';
+							this.props.books.forEach((b) => {
+								if (b.id === book.id) {
+									shelf = b.shelf;
+								}
+							})
+							return(
+								<li key={book.id}>
+									<Book
+										style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ''})` }}
+										changeShelf={(e) => {changeShelf(book, e.target.value)}}
+										bookShelf={shelf}
+										bookTitle={book.title}
+										bookAuthor={book.authors}
+									/>
+								</li>
+							)
+						})}
 					</ol>
 				</div>
 			</div>
