@@ -13,19 +13,19 @@ function ListBooks(props) {
 				shelfTitle='Currently Reading'
 				books={books}
 				changeShelf={changeShelf}
-				bookShelf='currentlyReading'
+				shelf='currentlyReading'
 			/>
 			<Shelf
 				shelfTitle='Want to Read'
 				books={books}
 				changeShelf={changeShelf}
-				bookShelf='wantToRead'
+				shelf='wantToRead'
 			/>
 			<Shelf
 				shelfTitle='Read'
 				books={books}
 				changeShelf={changeShelf}
-				bookShelf='read'
+				shelf='read'
 			/>
 			<AddBook />
 		</div>

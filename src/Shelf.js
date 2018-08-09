@@ -2,21 +2,15 @@ import React from 'react';
 import Book from './Book'
 
 function Shelf(props) {
-	const { books, changeShelf, shelfTitle, bookShelf } = props
+	const { books, changeShelf, title, shelf } = props
 
-	let booksOfSameShelf = books.filter(book => book.shelf === bookShelf);
-
-	// existBooksOnQueryResult(bookFromQuery) {
-	// 	if (book.id === bookFromQuery.id) {
-	// 		return book.shelf;
-	// 	} else return 'none';
-	// }
+	let booksOfSameShelf = books.filter(book => book.shelf === shelf);
 
 	return (
 		<div className="list-books-content">
 			<div>
 				<div className="bookshelf">
-					<h2 className="bookshelf-title">{shelfTitle}</h2>
+					<h2 className="bookshelf-title">{title}</h2>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{booksOfSameShelf.map(book => (
@@ -24,9 +18,9 @@ function Shelf(props) {
 									<Book
 										style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ''})` }}
 										changeShelf={(e) => {changeShelf(book, e.target.value)}}
-										bookShelf={bookShelf}
-										bookTitle={book.title}
-										bookAuthor={book.authors}
+										shelf={shelf}
+										title={book.title}
+										author={book.authors}
 									/>
 								</li>
 							))}

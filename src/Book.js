@@ -3,14 +3,14 @@ import React, { Component } from 'react';
 class Book extends Component {
 
 	render() {
-		const { style, changeShelf, bookShelf, bookTitle, bookAuthor} = this.props
+		const { style, changeShelf, shelf, title, author} = this.props
 
 		return (
 			<div className="book">
 				<div className="book-top">
 					<div className="book-cover" style={style}></div>
 					<div className="book-shelf-changer">
-						<select value={bookShelf} onChange={changeShelf}>
+						<select value={shelf} onChange={changeShelf}>
 							<option value="move" disabled>Move to...</option>
 							<option value="currentlyReading">Currently Reading</option>
 							<option value="wantToRead">Want to Read</option>
@@ -19,8 +19,8 @@ class Book extends Component {
 						</select>
 					</div>
 				</div>
-				<div className="book-title">{bookTitle}</div>
-				<div className="book-authors">{bookAuthor}</div>
+				<div className="book-title">{title}</div>
+				<div className="book-authors">{author}</div>
 			</div>
 		)
 	}

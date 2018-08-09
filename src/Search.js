@@ -60,9 +60,9 @@ class Search extends Component {
 									<Book
 										style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ''})` }}
 										changeShelf={(e) => {changeShelf(book, e.target.value)}}
-										bookShelf={shelf}
-										bookTitle={book.title}
-										bookAuthor={book.authors}
+										shelf={shelf}
+										title={book.title}
+										author={book.authors}
 									/>
 								</li>
 							)
