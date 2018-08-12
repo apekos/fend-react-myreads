@@ -2,7 +2,7 @@ import React from 'react';
 import Book from './Book'
 
 function Shelf(props) {
-	const { books, changeShelf, title, shelf } = props
+	const { books, changeShelf, shelfTitle, shelf } = props
 
 	let booksOfSameShelf = books.filter(book => book.shelf === shelf);
 
@@ -10,7 +10,7 @@ function Shelf(props) {
 		<div className="list-books-content">
 			<div>
 				<div className="bookshelf">
-					<h2 className="bookshelf-title">{title}</h2>
+					<h2 className="bookshelf-title">{shelfTitle}</h2>
 					<div className="bookshelf-books">
 						<ol className="books-grid">
 							{booksOfSameShelf.map(book => (
